@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<math.h>
+#include<locale.h>
+#define eps=0.001
+double res(double a, double b)
+{
+	double y = pow(cos(a + pow(b, 2)), 3) * sqrt(exp(pow(a, 2) - 13.4 * b) / pow((a + b), 3));
+	return y;
+}
+
+	void main()
+	{
+		setlocale(LC_ALL, "RUS");
+		double a, b, y;
+		puts("Задание 1:");
+		printf("Введите значение а и b: ");
+		scanf("%lf%lf", &a, &b);
+		y = res(a, b);
+		printf("Значение выражения равно: %lf\n", y);
+		puts("Задание 2:");
+
+	}
