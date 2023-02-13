@@ -1,0 +1,37 @@
+#include<iostream> 
+#include<stdio.h> 
+#include<math.h> 
+#include<iomanip> 
+ 
+#define pi 3.14 
+using namespace std; 
+double F(double x) 
+{ 
+ double eps = 0.001, n = 1, a1 = pi / 2, a2 = ((-1) * (n - 1) / n) * 1 / ((2 * n - 1) * x *(2*n - 1) / n), f = a1; 
+ if (fabs(x) > 1) 
+ { 
+  while (fabs(a2 - a1) <= eps) 
+  { 
+   f += a2; 
+   n++; 
+   a1 = a2; 
+   a2 = ((-1) * (n - 1) / n) * 1 / ((2 * n - 1) * x * (2*n - 1) / n); 
+  } 
+  return f; 
+ } 
+ else return 0; 
+} 
+void main() 
+{ 
+ setlocale(LC_ALL, "RUS"); 
+ cout « "Задание 1\n"; 
+ double a, b, c; 
+ cout « fixed « setprecision(4); 
+ cout « "Введите два числа через пробел\n"; 
+ cin » a » b; 
+ c = log((cos(pow(a, 2) + (8, 72)) + pow(sin(pi * b), 2)) / (sqrt((1, 2) + (a /(pow(a, 3) + 3, 47 * b))))); 
+ cout « "Значение выражения равно " « c « endl; 
+ cout « "Задание 2\n"; 
+ cout « F(10)«endl; 
+ cout « F(1.5) « endl; 
+ cout « F(-5) « endl;
