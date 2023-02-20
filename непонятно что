@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cmath>
+#include<iomanip>
+#include<stdio.h>
+double F(double);
+using namespace std;
+const double eps = 0.001;
+double factorial(double);
+void main()
+{
+	setlocale(LC_ALL, "rus");
+	cout << "Задание 1" << endl;
+	double a, b, y;
+	cout << fixed << setprecision(4);
+	cout << "Введите значения a и b через пробел" << endl;
+	cin >> a >> b;
+	y = pow(cos(a + pow(b, 2)), 3) * sqrt(exp(pow(a, 2) - 13.4 * b) / pow((a + b), 3));
+	cout << "Значение выражения равно " << y << endl;
+	cout << "Задание 2" << endl;
+	cout << F(-2)<<endl;
+	cout << F(0.98) << endl;
+	cout << F(15) << endl;
+	cout << "Задание 3" << endl;
+	cout << "Задача 1" << endl;
+}
+double factorial(double x)
+{
+	if (2 * x == 0) return 1;
+	else return 2 * x * factorial(2 * x - 1);
+}
+double F(double x)
+{
+	double n = 1, a1 = 1, a2 = ((-1) * (n - 1) / n) * x * (2 * n) /n / factorial(x), f = a1;
+	if (fabs(x) < INFINITY)
+	{
+		while (fabs(a2 - a1) <= eps)
+		{
+			f += a2;
+			n++;
+			a1 = a2;
+			a2 = ((-1) * (n - 1) / n) * x * (2 * n) / n / factorial(x);
+		}
+		return f;
+	}
+	else return 0;
+}
